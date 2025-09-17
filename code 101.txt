@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nakuru Bike Bites</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Nakuru Bike Bites</h1>
+    <p>Delicious local meals, delivered by bike — just 200 KES/week!</p>
+    <button onclick="subscribe()">Subscribe Now</button>
+  </header>
+
+  <section id="menu">
+    <h2>Our Menu</h2>
+    <ul>
+      <li>🍟 Chips & Meat</li>
+      <li>🍗 Chicken & Ugali</li>
+      <li>🐟 Omena & Ugali</li>
+      <li>🍵 Tea</li>
+    </ul>
+  </section>
+
+  <section id="delivery">
+    <h2>Delivery Zone</h2>
+    <p>We deliver across Nakuru Town. Enter your location to check:</p>
+    <input type="text" placeholder="Your location">
+    <button>Check</button>
+  </section>
+
+  <section id="subscribe">
+    <h2>Subscribe</h2>
+    <p>Pay 200 KES/week via M-Pesa or Airtel Money</p>
+    <form>
+      <input type="text" placeholder="Name">
+      <input type="text" placeholder="Phone">
+      <input type="text" placeholder="Location">
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Contact us on WhatsApp or call 0712-XXX-XXX</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+header {
+  background: #2e8b57;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+section {
+  padding: 20px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  background: white;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+button {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+function subscribe() {
+  alert("Redirecting to subscription form...");
+  document.getElementById("subscribe").scrollIntoView({ behavior: "smooth" });
+}
+

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nakuru Bike Bites</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#00a859;
+      --whatsapp:#25D366;
+      --bg:#fffdf5;
+      --text:#2c2c2c;
+      --muted:#555;
+      --card:#fff;
+      --card-border:#e6e6e6;
+      --accent-bg:#fff8e1;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:'Montserrat', sans-serif; background:var(--bg); color:var(--text);
+    }
+    header{
+      background:var(--brand); color:#fff; padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    }
+    .brand{
+      display:flex; align-items:center; gap:.75rem;
+    }
+    .brand img{ height:46px; width:auto; border-radius:6px; display:block; }
+    nav a{ color:#fff; text-decoration:none; font-weight:700; margin-left:1rem; }
+    nav a:hover{ text-decoration:underline; }
+    .hero{
+      text-align:center; padding:4rem 2rem; color:#fff;
+      background:linear-gradient(90deg, var(--brand), #00c96b);
+    }
+    .btn, .whatsapp-btn, .order-btn{
+      background:var(--whatsapp); color:#fff; border:none; padding:.8rem 1.2rem; border-radius:8px; font-weight:700; cursor:pointer;
+    }
+    .sections{ padding:2rem 1rem; max-width:1100px; margin:0 auto; }
+    h2.section-title{ text-align:center; color:var(--brand); font-size:2rem; margin:0 0 1.25rem; }
+    .info{ text-align:center; color:var(--muted); margin-bottom:1rem; }
+
+    /* Cards */
+    .grid{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+    .card{
+      width:260px; background:var(--card); border:1px solid var(--card-border); border-radius:12px; overflow:hidden;
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+    }
+    .card img{ width:100%; height:165px; object-fit:cover; display:block; }
+    .card .content{ padding:0.9rem; }
+    .card h3{ margin:.3rem 0 .4rem; font-size:1.05rem; color:#222; }
+    .badge{ display:inline-block; font-size:.78rem; font-weight:700; color:#fff; background:var(--brand); padding:.15rem .5rem; border-radius:.5rem; margin-left:.35rem; }
+    .muted{ color:var(--muted); font-size:.95rem; margin:.2rem 0 .6rem; }
+    .order-btn{ width:100%; }
+
+    /* Subscription */
+    .subscription{ background:var(--accent-bg); text-align:center; padding:2rem 1rem; }
+    .sub-form{ display:flex; flex-direction:column; gap:.7rem; max-width:420px; margin:0 auto; }
+    .input{
+      padding:.8rem .9rem; border:1px solid #ccc; border-radius:8px; font-size:1rem; width:100%;
+      outline:none;
+    }
+    .cta{ background:var(--brand); }
+
+    /* Referral */
+    .referral{ background:var(--accent-bg); text-align:center; padding:2rem 1rem; }
+
+    /* Contact */
+    .contact{ background:var(--brand); color:#fff; text-align:center; padding:2.2rem 1rem; }
+    .contact .callout{
+      display:inline-block; background:#fff; color:var(--brand); padding:.9rem 1.2rem; border-radius:8px; font-weight:800; text-decoration:none; margin:.4rem;
+    }
+    .contact .note{ opacity:.9; }
+
+    /* Map */
+    .map{ border:0; width:100%; height:320px; border-radius:12px; }
+
+    footer{ text-align:center; padding:1rem; color:#666; background:#f2f2f2; font-size:.95rem; }
+
+    @media (max-width:720px){
+      header{ flex-direction:column; align-items:flex-start; }
+      nav{ display:flex; flex-wrap:wrap; gap:.5rem; padding-top:.6rem; }
+      nav a{ margin-left:0; }
+      .card{ width:100%; max-width:520px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with logo (falls back if missing) -->
+  <header>
+    <div class="brand">
+      <img
+        id="logo"
+        src="https://raw.githubusercontent.com/kamau101-netizen/images/main/logo.png"
+        alt="Nakuru Bike Bites Logo"
+      />
+      <strong>Nakuru Bike Bites</strong>
+    </div>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#zones">Kitchens</a>
+      <a href="#subscribe">Subscription</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Fast. Fresh. Local.</h1>
+    <p>Bike-powered delivery across Nakuru. Taste the speed!</p>
+    <a
+      class="whatsapp-btn"
+      href="https://wa.me/254712345678?text=Hi%20Nakuru%20Bike%20Bites%2C%20I%20want%20to%20order%20Chips%20Mayai%20to%20Milimani"
+      target="_blank" rel="noopener"
+    >Order via WhatsApp</a>
+  </section>
+
+  <!-- Subscription -->
+  <section id="subscribe" class="sections subscription">
+    <h2 class="section-title">Weekly subscription</h2>
+    <p class="info">Unlimited deliveries for <strong>KES 200/week</strong>. Priority riders and exclusive bites.</p>
+    <form class="sub-form" onsubmit="event.preventDefault(); alert('Asante! Your subscription request has been received.');">
+      <input class="input" type="text" placeholder="Your name" required />
+      <input class="input" type="email" placeholder="Email address" required />
+      <button class="btn cta" type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Menu (images from your repo with fallbacks) -->
+  <section id="menu" class="sections">
+    <h2 class="section-title">Our local bites</h2>
+    <div class="grid">
+      <article class="card">
+        <img class="img-fallback"
+             src="https://raw.githubusercontent.com/kamau101-netizen/images/main/chips-mayai.jpg"
+             data-alt="https://raw.githubusercontent.com/kamau101-netizen/images/main/chips_mayai.jpg"
+             alt="Chips Mayai">
+        <div class="content">
+          <h3>Chips Mayai</h3>
+          <p class="muted">Golden fries wrapped in a fluffy omelette. A Nakuru classic.</p>
+          <button class="order-btn"
+                  onclick="openWhatsApp('Chips Mayai')">Order Chips Mayai</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="img-fallback"
+             src="https://raw.githubusercontent.com/kamau101-netizen/images/main/smokie-pasua.jpg"
+             data-alt="https://raw.githubusercontent.com/kamau101-netizen/images/main/smokie_pasua.jpg"
+             alt="Smokie Pasua">
+        <div class="content">
+          <h3>Smokie Pasua</h3>
+          <p class="muted">Sliced smokie stuffed with spicy kachumbari. Perfect for a quick bite.</p>
+          <button class="order-btn"
+                  onclick="openWhatsApp('Smokie Pasua')">Order Smokie Pasua</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="img-fallback"
+             src="https://raw.githubusercontent.com/kamau101-netizen/images/main/mutura.jpg"
+             data-alt="https://raw.githubusercontent.com/kamau101-netizen/images/main/mutura.jpeg"
+             alt="Mutura">
+        <div class="content">
+          <h3>Mutura</h3>
+          <p class="muted">Grilled Kenyan sausage served hot. Bold flavor, big satisfaction.</p>
+          <button class="order-btn"
+                  onclick="openWhatsApp('Mutura')">Order Mutura</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="img-fallback"
+             src="https://raw.githubusercontent.com/kamau101-netizen/images/main/mandazi.jpg"
+             data-alt="https://raw.githubusercontent.com/kamau101-netizen/images/main/maandazi.jpg"
+             alt="Mandazi">
+        <div class="content">
+          <h3>Mandazi</h3>
+          <p class="muted">Sweet, fluffy fried dough. Great with chai or on the go.</p>
+          <button class="order-btn"
+                  onclick="openWhatsApp('Mandazi')">Order Mandazi</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Featured kitchens by delivery zone -->
+  <section id="zones" class="sections">
+    <h2 class="section-title">Featured kitchens by delivery zone</h2>
+
+    <h3 class="info">CBD</h3>
+    <div class="grid">
+      <article class="card">
+        <!-- Try the clean name first; if missing, fall back to current file mama-njeri.jp.jpg -->
+        <img class="img-fallback multi-fallback"
+             src="https://raw.githubusercontent.com/kamau101-netizen/images/main/mama-njeri.jpg"
+             data-alt="https://raw.githubusercontent.com/kamau101-netizen/images/main/mama-njeri.jp.jpg"
+             alt="Mama Njeri's Kitchen">
+        <div class="content">
+          <h3>Mama Njeri's Kitchen <span class="badge">⭐ Featured</span></h3>
+          <p class="muted">Authentic Kenyan dishes, delivered hot and fast.</p>
+          <button class="order-btn" onclick="openWhatsApp('Mama Njeri\\'s Kitchen')">Order Now</button>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="info">Milimani</h3>
+    <div class="grid">
+      <article class="card">
+        <img class="img-fallback"
+             src="https://raw.githubusercontent.com/kamau101-netizen/images/main/westside-cafe.jpg"
+             data-alt="https://raw.githubusercontent.com/kamau101-netizen/images/main/westside_cafe.jpg"
+             alt="Westside Café">
+        <div class="content">
+          <h3>Westside Café</h3>
+          <p class="muted">Office-friendly meals with fast delivery to Westside Mall.</p>
+          <button class="order-btn" onclick="openWhatsApp('Westside Cafe')">Order Now</button>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="info">Section 58</h3>
+    <div class="grid">
+      <article class="card">
+        <img class="img-fallback"
+             src="https://raw.githubusercontent.com/kamau101-netizen/images/main/section-58-kitchen.jpg"
+             data-alt="https://raw.githubusercontent.com/kamau101-netizen/images/main/section58-kitchen.jpg"
+             alt="Section 58 Kitchen">
+        <div class="content">
+          <h3>Section 58 Kitchen</h3>
+          <p class="muted">Quick bites and hearty meals for Section 58 offices.</p>
+          <button class="order-btn" onclick="openWhatsApp('Section 58 Kitchen')">Order Now</button>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="info">Westside Mall</h3>
+    <div class="grid">
+      <article class="card">
+        <img class="img-fallback"
+             src="https://raw.githubusercontent.com/kamau101-netizen/images/main/westside-mall-kitchen.jpg"
+             data-alt="https://raw.githubusercontent.com/kamau101-netizen/images/main/westside_mall_kitchen.jpg"
+             alt="Westside Mall Kitchen">
+        <div class="content">
+          <h3>Westside Mall Kitchen</h3>
+          <p class="muted">Fast, office-friendly meals right by the mall.</p>
+          <button class="order-btn" onclick="openWhatsApp('Westside Mall Kitchen')">Order Now</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Referral -->
+  <section class="sections referral">
+    <h2 class="section-title">Refer & earn</h2>
+    <p class="info">Invite a friend and get <strong>1 free delivery</strong> after their first order.</p>
+    <p class="info">They can mention your name in their WhatsApp order.</p>
+  </section>
+
+  <!-- Rider tracking (placeholder map) -->
+  <section class="sections">
+    <h2 class="section-title">Track your rider</h2>
+    <p class="info">Live tracking coming soon. For now, use the map for coverage.</p>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63845.04666759241!2d36.018!3d-0.303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18299e8ddfb5b7c7%3A0x8e3f9b7d8b0f3d4a!2sNakuru!5e0!3m2!1sen!2ske!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Need help? Call or WhatsApp now</h2>
+    <p class="note">We deliver across CBD, Milimani, Section 58, and around Westside Mall.</p>
+    <a class="callout" href="tel:+254712345678">Call: +254 712 345 678</a>
+    <a class="callout" href="https://wa.me/254712345678?text=Hi%20Nakuru%20Bike%20Bites%2C%20I%20need%20assistance" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    <p class="note">Mon–Sat, 9:00–18:00</p>
+  </section>
+
+  <footer>
+    © 2025 Nakuru Bike Bites — Powered by pedal, driven by flavor.
+  </footer>
+
+  <script>
+    // Open WhatsApp with a prefilled message
+    function openWhatsApp(item){
+      const msg = encodeURIComponent(`Hi Nakuru Bike Bites, I want to order ${item} to my office in Nakuru.`);
+      window.open(`https://wa.me/254712345678?text=${msg}`, '_blank');
+    }
+
+    // Image fallback logic:
+    // 1) Try primary src
+    // 2) If it fails and data-alt exists, try alt
+    // 3) If that fails, use a neutral placeholder
+    const PLACEHOLDER = 'https://via.placeholder.com/600x400?text=Image+coming+soon';
+
+    document.querySelectorAll('img.img-fallback').forEach(img=>{
+      img.addEventListener('error', function onErr(){
+        const alt = img.getAttribute('data-alt');
+        if (alt && !img.dataset.triedAlt){
+          img.dataset.triedAlt = '1';
+          img.src = alt;
+        } else if (!img.dataset.placed){
+          img.dataset.placed = '1';
+          img.src = PLACEHOLDER;
+        }
+      }, { once:false });
+    });
+
+    // Logo fallback to placeholder if missing
+    const logo = document.getElementById('logo');
+    if (logo){
+      logo.addEventListener('error', ()=>{
+        logo.src = 'https://via.placeholder.com/160x46?text=Nakuru+Bike+Bites';
+      });
+    }
+  </script>
+</body>
+</html>
